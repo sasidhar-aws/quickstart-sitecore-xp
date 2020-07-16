@@ -984,11 +984,23 @@ AWS best practices, to provide you with your own virtual network on AWS.*</p>
 inbound remote desktop access to Amazon Elastic Compute Cloud (Amazon EC2)
 instances in the public and private subnets.*</p>
 </li>
+<li>
+<p>In the public subnets:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed network address translation (NAT) gateways to allow outbound
+internet access for resources in the private subnets.*</p>
+</li>
+<li>
+<p>An internet-facing Application Load Balancer (ALB) for routing traffic to the
+instances for content delivery, content management, and identity server.</p>
+</li>
 </ul>
 </div>
-<div class="paragraph">
-<p>In the public subnets:</p>
-</div>
+</li>
+<li>
+<p>In the private subnets:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1014,31 +1026,34 @@ lookups within the VPC.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
+</li>
+<li>
 <p>An EC2 Amazon Machine Image (AMI), which is used in the initial deployment of all
 Sitecore roles and in subsequent Auto Scaling events.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>AWS Systems Manager to store parameter data and the AMI automation build
 document.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>Amazon Simple Storage Service (Amazon S3) artifacts bucket for storing static data.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>Amazon RDS SQL Server to provide database services.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>Amazon CloudWatch for monitoring deployed services.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>AWS Secrets Manager for access control.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>AWS Certificate Manager (ACM) for access control.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>A Lambda function to convert and import the certificate into ACM</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>*The template that deploys the Quick Start into an existing VPC skips
@@ -2530,7 +2545,7 @@ and to share your customizations with others.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-16 21:39:19 UTC
+Last updated 2020-07-16 23:34:48 UTC
 </div>
 </div>
 </body>
