@@ -3,6 +3,14 @@ Description: 'Deploys Sitecore into an existing VPC  (qs-1qppe684j)'
 Metadata:
   QuickStartDocumentation:
     EntrypointName: "Launch into an existing VPC"
+    OptionalParameters:
+      - IntDNS
+      - IntVPCR53Zone
+      - ExternalCertFQDN
+      - ExternalR53ZoneID
+      - SOLRUrl
+      - LambdaZipsBucketName
+      - SQLAlwaysOn
   AWS::CloudFormation::Interface:
     ParameterGroups:
       - Label:

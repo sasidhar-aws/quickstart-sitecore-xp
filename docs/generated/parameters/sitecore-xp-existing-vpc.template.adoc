@@ -21,8 +21,8 @@
 (`IntVPCR53Zone`)|``|[Optional] If you already have a private Route 53 hosted zone connected to your VPC, please provide the Route 53 hosted zone ID|Private (non-Route 53) DNS
 (`VPCPrivateDNS`)|`False`|Set to true if you have your own provided DNS servers for your VPC. Should you have your own DNS servers, you must create Canonical Name Record (CNAME) entries for the Sitecore roles. Please see the deloyment guide for details. set to false if you have a private Route 53 hosted zone connected to your VPC.|External ACM ARN
 (`ExternalCertificateARN`)|`**__Requires Input__**`|[Optional] Provide the Amazon Resource Name (ARN) of the wildcard certificate created in Amazon Certificate Manager. If not provided, a wildcard certificate will be created for you. If you provide an ARN, you do not need to provide details for ExternalCertFQDN or ExternalRoute53ZoneID.|External certificate domain name
-(`ExternalCertFQDN`)|`**__Requires Input__**`|[Optional] External domain name for the Sitecore deployment (e.g., example.com). This is created in ACM as a wildcard certificate (e.g., *.example.com) if no value is provided for ExternalCertificateARN.|External Route 53 zone ID
-(`ExternalR53ZoneID`)|`**__Requires Input__**`|[Optional] Provide the Route 53–hosted zone ID for ExternalCertFQDN if you require certificate validation to be done via DNS. If no Route 53 hosted zone ID is provided, validation is done via email.
+(`ExternalCertFQDN`)|`__Optional__`|[Optional] External domain name for the Sitecore deployment (e.g., example.com). This is created in ACM as a wildcard certificate (e.g., *.example.com) if no value is provided for ExternalCertificateARN.|External Route 53 zone ID
+(`ExternalR53ZoneID`)|`__Optional__`|[Optional] Provide the Route 53–hosted zone ID for ExternalCertFQDN if you require certificate validation to be done via DNS. If no Route 53 hosted zone ID is provided, validation is done via email.
 |===
 .Sitecore Configuration
 [width="100%",cols="16%,11%,73%",options="header",]

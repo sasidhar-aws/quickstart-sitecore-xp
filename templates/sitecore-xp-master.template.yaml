@@ -3,6 +3,14 @@ Description: Creates a new VPC and RD GW host, and deploys Sitecore into the new
 Metadata:
   QuickStartDocumentation:
     EntrypointName: "Launch into a new VPC"
+    OptionalParameters:
+      - IntDNS
+      - ExternalCertificateARN
+      - ExternalCertFQDN
+      - ExternalR53ZoneID
+      - SOLRUrl
+      - LambdaZipsBucketName
+      - SQLAlwaysOn
   AWS::CloudFormation::Interface:
     ParameterGroups:
       - Label:
