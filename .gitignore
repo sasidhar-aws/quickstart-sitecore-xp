@@ -7,3 +7,4 @@ taskcat_outputs/
 maint/*
 .vscode/settings.json
 .taskcat-*-*-*.yml
+index.html
