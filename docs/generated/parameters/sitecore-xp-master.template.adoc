@@ -57,12 +57,12 @@
 (`SitecoreS3Bucket`)|`**__Requires Input__**`|S3 Bucket name where the Sitecore 9.3 resources are located (installation files, license file, etc.). This deployment will put objects into this bucket.|Sitecore installation files prefix
 (`SCResourcesPrefix`)|`resources/`|Prefix in the S3 Bucket for the Sitecore install files (eg: resources/).|Sitecore license file prefix
 (`SCLicensePrefix`)|`license/`|Prefix in the S3 Bucket for the license.zip file (eg: license/).|Solr server/cluster URL
-(`SOLRUrl`)|``|[Optional] URL of your Solr server/cluster. If no URL is provided a development Solr instance will be created for this Sitecore deployment. Note: This development Solr instance should not be used within a production environment.|Solr cores prefix
+(`SOLRUrl`)|`__Optional__`|[Optional] URL of your Solr server/cluster. If no URL is provided a development Solr instance will be created for this Sitecore deployment. Note: This development Solr instance should not be used within a production environment.|Solr cores prefix
 (`SOLRCorePrefix`)|`**__Requires Input__**`|If you provided a Solr URL, this is the prefix of your pre-configured Solr cores. If no Solr URL provided, this is the prefix used for the Solr cores on the development Solr instance.|Sitecore environment type
 (`EnvironmentType`)|`Production`|Type of Sitecore deployment.|Sitecore log level
 (`SCLogLevel`)|`Information`|Sitecore deployment configured log level.|Email notifications
 (`EmailNotifications`)|`**__Requires Input__**`|Email address for receiving Sitecore auto scaling notifications.|Lambda S3 bucket name
-(`LambdaZipsBucketName`)|``|[Optional] The name of the S3 bucket where the Lambda zip files should be placed. If you leave this parameter blank, an S3 bucket will be created.
+(`LambdaZipsBucketName`)|`__Optional__`|[Optional] The name of the S3 bucket where the Lambda zip files should be placed. If you leave this parameter blank, an S3 bucket will be created.
 |===
 .SQL Server configuration
 [width="100%",cols="16%,11%,73%",options="header",]
