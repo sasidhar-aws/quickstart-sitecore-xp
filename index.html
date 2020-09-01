@@ -802,8 +802,8 @@ a img {
 <ul class="sectlevel2">
 <li><a href="#_sign_in_to_your_aws_account">Sign in to your AWS account</a></li>
 <li><a href="#_launch_the_quick_start">Launch the Quick Start</a></li>
-<li><a href="#_launch_into_an_existing_vpc">Launch into an existing VPC</a></li>
 <li><a href="#_launch_into_a_new_vpc">Launch into a new VPC</a></li>
+<li><a href="#_launch_into_an_existing_vpc">Launch into an existing VPC</a></li>
 </ul>
 </li>
 <li><a href="#_test_the_deployment">Test the deployment</a></li>
@@ -1372,438 +1372,9 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </div>
 </div>
 <div class="sect2">
-<h3 id="_launch_into_an_existing_vpc">Launch into an existing VPC</h3>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Network configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">VPC CIDR
-(<code>VPCCIDR</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.0.0/16</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR Block for the VPC</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">VPC ID
-(<code>VPCID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the VPC (e.g., vpc-0343606e)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 1A ID
-(<code>PrivateSubnet1A</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the private subnet 1 in Availability Zone 1 (e.g., subnet-a0246dcd)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 2A ID
-(<code>PrivateSubnet2A</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the private subnet 2 in Availability Zone 2 (e.g., subnet-a0246dcd)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 1 ID
-(<code>PublicSubnet1</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet in Availability Zone 1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 2 ID
-(<code>PublicSubnet2</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet in Availability Zone 2</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. Sitecore Networking Configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Content delivery FQDN
-(<code>CDDNSName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Fully qualified domain name for the content delivery role (e.g., home.example.com).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Content management FQDN
-(<code>CMDNSName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Fully qualified domain name for the content management role.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Identity server FQDN
-(<code>ISDNSName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Fully qualified domain name for the identity server role.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Internal DNS suffix
-(<code>IntDNS</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>Optional</em></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] Internal DNS name. If left blank, one is generated for you. If you have a private Route 53 hosted zone or a private managed DNS connected to your VPC, please provide the DNS suffix of the hosted zone.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Internal Route 53 hosted zone ID
-(<code>IntVPCR53Zone</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>Optional</em></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] If you already have a private Route 53 hosted zone connected to your VPC, please provide the Route 53 hosted zone ID</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Private (non-Route 53) DNS
-(<code>VPCPrivateDNS</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>False</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set to true if you have your own provided DNS servers for your VPC. Should you have your own DNS servers, you must create Canonical Name Record (CNAME) entries for the Sitecore roles. Please see the deloyment guide for details. set to false if you have a private Route 53 hosted zone connected to your VPC.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">External ACM ARN
-(<code>ExternalCertificateARN</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] Provide the Amazon Resource Name (ARN) of the wildcard certificate created in Amazon Certificate Manager. If not provided, a wildcard certificate will be created for you. If you provide an ARN, you do not need to provide details for ExternalCertFQDN or ExternalRoute53ZoneID.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">External certificate domain name
-(<code>ExternalCertFQDN</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>Optional</em></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] External domain name for the Sitecore deployment (e.g., example.com). This is created in ACM as a wildcard certificate (e.g., *.example.com) if no value is provided for ExternalCertificateARN.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">External Route 53 zone ID
-(<code>ExternalR53ZoneID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>Optional</em></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] Provide the Route 53–hosted zone ID for ExternalCertFQDN if you require certificate validation to be done via DNS. If no Route 53 hosted zone ID is provided, validation is done via email.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Sitecore Configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum content delivery instances
-(<code>CDMinSize</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum number of content delivery instances available.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum content delivery instances
-(<code>CDMaxSize</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum number of content delivery instances available.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Desired content delivery instances
-(<code>CDDesiredCapacity</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Desired number of content delivery instances available.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Content delivery
-(<code>CDInstanceType</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>m5a.xlarge</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Content delivery instance type.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Content delivery scaling metric
-(<code>CDScalingMetric</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ASGAverageCPUUtilization</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Metric used to determine scaling of the content delivery role.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Content delivery scaling metric value
-(<code>CDScalingMetricValue</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>70</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Value required for the scaling metric (For ASGAverageNetworkIn this value is in bytes).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum content management instances
-(<code>CMMinSize</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum number of content management instances available.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum content management instances
-(<code>CMMaxSize</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum number of content management instances available.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Content management, identity, reference data
-(<code>CmIdRdInstanceType</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>m5a.xlarge</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type, applied to the roles of content management, identity, and reference data.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Content management scaling metric
-(<code>CMScalingMetric</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ASGAverageCPUUtilization</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Metric used to determine scaling of the content management role.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Content management scaling metric value
-(<code>CMScalingMetricValue</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>70</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Value required for the scaling metric (For ASGAverageNetworkIn this value is in bytes).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Collection, collection search
-(<code>CollCSInstanceType</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>m5a.xlarge</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type, applied to the roles of collection, collection search.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Marketing automation, cortex processing, processing
-(<code>MaCpPrcInstanceType</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>m5a.xlarge</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type, applied to the roles of marketing automation, cortex processing, and processing.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Marketing automation reporting, cortex reporting, reporting
-(<code>MarCrRepInstanceType</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>m5a.xlarge</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type, applied to the roles of marketing automation reporting, cortex reporting, and reporting.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 Key Pair for Sitecore instances
-(<code>SitecoreKeyPair</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 Key Pair to use for the Sitecore instances.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sitecore installation prefix
-(<code>SitecorePrefix</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix to be used for the Sitecore installation. This is limited to 8 characters.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sitecore resources S3 Bucket
-(<code>SitecoreS3Bucket</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 Bucket name where the Sitecore 9.3 resources are located (installation files, license file, etc.). This deployment will put objects into this bucket.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sitecore installation files prefix
-(<code>SCResourcesPrefix</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>resources/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix in the S3 Bucket for the Sitecore install files (eg: resources/).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sitecore license file prefix
-(<code>SCLicensePrefix</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>license/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix in the S3 Bucket for the license.zip file (eg: license/).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Solr server/cluster URL
-(<code>SOLRUrl</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>Optional</em></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] URL of your Solr server/cluster. If no URL is provided a development Solr instance will be created for this Sitecore deployment. Note: This development Solr instance should not be used within a production environment.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Solr cores prefix
-(<code>SOLRCorePrefix</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If you provided a Solr URL, this is the prefix of your pre-configured Solr cores. If no Solr URL provided, this is the prefix used for the Solr cores on the development Solr instance.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sitecore environment type
-(<code>EnvironmentType</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Production</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Type of Sitecore deployment.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sitecore log level
-(<code>SCLogLevel</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Information</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sitecore deployment configured log level.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Email notifications
-(<code>EmailNotifications</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Email address for receiving Sitecore auto scaling notifications.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lambda S3 bucket name
-(<code>LambdaZipsBucketName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>Optional</em></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] Name of the S3 bucket where the Lambda zip files should be placed. If you leave this parameter blank, an S3 bucket will be created.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. SQL Server configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Database instance class
-(<code>DBInstanceClass</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>db.r4.2xlarge</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the compute and memory capacity class of the database instance.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Database auto minor version upgrade
-(<code>DBAutoMinorVersionUpgrade</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If set to true, minor engine upgrades are applied to the database instance. If set to false, minor engine upgrades are not applied to the database instance.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MSSQL database engine edition
-(<code>SQLEngineEdition</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sqlserver-se</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MSSQL database engine edition.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MSSQL database engine version
-(<code>SQLEngineVersion</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>14.00.3223.3.v1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MSSQL database engine version.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MSSQL always on
-(<code>SQLAlwaysOn</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>False</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[OPTIONAL] Set to true if you want SQL to be always on (high availability) for the deployment. Beware that this only applies when SQLEngineEdition is set to sqlserver-ee (Enterprise Edition) as the MSSQL database engine edition. If set to false, SQL will be deployed to one Availability Zone.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Data volume size
-(<code>VolumeSize</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>500</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Volume size (GB) for the SQL data, logs, and TempDb volumes.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Data volume type
-(<code>VolumeType</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gp2</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Volume type for the SQL Data, Logs and TempDb volumes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Data volume IOPS
-(<code>VolumeIops</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1000</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Provisioned IOPS for the SQL Data, Logs and TempDb volumes. This parameter is only applicable when VolumeType is set to "io1"</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Retention period
-(<code>BackupRetentionPeriod</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>7</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of days automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Redis ElastiCache configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Redis cache node type
-(<code>CacheNodeType</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cache.m4.large</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type the nodes are launched under.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Redis port
-(<code>RedisPort</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6379</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Port number to be used for Redis ElastiCache.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. AWS Quick Start configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket name
-(<code>QSS3BucketName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws-quickstart</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket name for the Quick Start assets. Quick Start bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket region
-(<code>QSS3BucketRegion</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>us-east-1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 key prefix
-(<code>QSS3KeyPrefix</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quickstart-sitecore-xp/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slash (/).</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_launch_into_a_new_vpc">Launch into a new VPC</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. VPC Network configuration</caption>
+<caption class="title">Table 1. VPC Network configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1856,7 +1427,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 8. RDGW configuration</caption>
+<caption class="title">Table 2. RDGW configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1915,7 +1486,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 9. Sitecore networking configuration</caption>
+<caption class="title">Table 3. Sitecore networking configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1974,7 +1545,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 10. Sitecore configuration</caption>
+<caption class="title">Table 4. Sitecore configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2141,7 +1712,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 11. SQL Server configuration</caption>
+<caption class="title">Table 5. SQL Server configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2212,7 +1783,436 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 12. ElastiCache Redis configuration</caption>
+<caption class="title">Table 6. ElastiCache Redis configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redis cache node type
+(<code>CacheNodeType</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cache.m4.large</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type the nodes are launched under.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redis port
+(<code>RedisPort</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6379</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Port number to be used for Redis ElastiCache.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 7. AWS Quick Start configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket name
+(<code>QSS3BucketName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws-quickstart</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket name for the Quick Start assets. Quick Start bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket region
+(<code>QSS3BucketRegion</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>us-east-1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 key prefix
+(<code>QSS3KeyPrefix</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quickstart-sitecore-xp/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slash (/).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_launch_into_an_existing_vpc">Launch into an existing VPC</h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 8. Network configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPC CIDR
+(<code>VPCCIDR</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.0.0/16</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR Block for the VPC</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPC ID
+(<code>VPCID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the VPC (e.g., vpc-0343606e)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 1A ID
+(<code>PrivateSubnet1A</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the private subnet 1 in Availability Zone 1 (e.g., subnet-a0246dcd)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 2A ID
+(<code>PrivateSubnet2A</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the private subnet 2 in Availability Zone 2 (e.g., subnet-a0246dcd)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 1 ID
+(<code>PublicSubnet1</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet in Availability Zone 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 2 ID
+(<code>PublicSubnet2</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet in Availability Zone 2</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 9. Sitecore Networking Configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Content delivery FQDN
+(<code>CDDNSName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fully qualified domain name for the content delivery role (e.g., home.example.com).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Content management FQDN
+(<code>CMDNSName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fully qualified domain name for the content management role.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identity server FQDN
+(<code>ISDNSName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fully qualified domain name for the identity server role.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internal DNS suffix
+(<code>IntDNS</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>Optional</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] Internal DNS name. If left blank, one is generated for you. If you have a private Route 53 hosted zone or a private managed DNS connected to your VPC, please provide the DNS suffix of the hosted zone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internal Route 53 hosted zone ID
+(<code>IntVPCR53Zone</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>Optional</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] If you already have a private Route 53 hosted zone connected to your VPC, please provide the Route 53 hosted zone ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private (non-Route 53) DNS
+(<code>VPCPrivateDNS</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>False</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to true if you have your own provided DNS servers for your VPC. Should you have your own DNS servers, you must create Canonical Name Record (CNAME) entries for the Sitecore roles. Please see the deloyment guide for details. set to false if you have a private Route 53 hosted zone connected to your VPC.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">External ACM ARN
+(<code>ExternalCertificateARN</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] Provide the Amazon Resource Name (ARN) of the wildcard certificate created in Amazon Certificate Manager. If not provided, a wildcard certificate will be created for you. If you provide an ARN, you do not need to provide details for ExternalCertFQDN or ExternalRoute53ZoneID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">External certificate domain name
+(<code>ExternalCertFQDN</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>Optional</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] External domain name for the Sitecore deployment (e.g., example.com). This is created in ACM as a wildcard certificate (e.g., *.example.com) if no value is provided for ExternalCertificateARN.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">External Route 53 zone ID
+(<code>ExternalR53ZoneID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>Optional</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] Provide the Route 53–hosted zone ID for ExternalCertFQDN if you require certificate validation to be done via DNS. If no Route 53 hosted zone ID is provided, validation is done via email.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 10. Sitecore Configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum content delivery instances
+(<code>CDMinSize</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum number of content delivery instances available.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum content delivery instances
+(<code>CDMaxSize</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum number of content delivery instances available.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Desired content delivery instances
+(<code>CDDesiredCapacity</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Desired number of content delivery instances available.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Content delivery
+(<code>CDInstanceType</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>m5a.xlarge</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Content delivery instance type.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Content delivery scaling metric
+(<code>CDScalingMetric</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ASGAverageCPUUtilization</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Metric used to determine scaling of the content delivery role.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Content delivery scaling metric value
+(<code>CDScalingMetricValue</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>70</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value required for the scaling metric (For ASGAverageNetworkIn this value is in bytes).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum content management instances
+(<code>CMMinSize</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum number of content management instances available.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum content management instances
+(<code>CMMaxSize</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum number of content management instances available.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Content management, identity, reference data
+(<code>CmIdRdInstanceType</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>m5a.xlarge</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type, applied to the roles of content management, identity, and reference data.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Content management scaling metric
+(<code>CMScalingMetric</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ASGAverageCPUUtilization</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Metric used to determine scaling of the content management role.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Content management scaling metric value
+(<code>CMScalingMetricValue</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>70</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value required for the scaling metric (For ASGAverageNetworkIn this value is in bytes).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Collection, collection search
+(<code>CollCSInstanceType</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>m5a.xlarge</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type, applied to the roles of collection, collection search.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Marketing automation, cortex processing, processing
+(<code>MaCpPrcInstanceType</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>m5a.xlarge</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type, applied to the roles of marketing automation, cortex processing, and processing.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Marketing automation reporting, cortex reporting, reporting
+(<code>MarCrRepInstanceType</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>m5a.xlarge</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type, applied to the roles of marketing automation reporting, cortex reporting, and reporting.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 Key Pair for Sitecore instances
+(<code>SitecoreKeyPair</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 Key Pair to use for the Sitecore instances.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sitecore installation prefix
+(<code>SitecorePrefix</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix to be used for the Sitecore installation. This is limited to 8 characters.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sitecore resources S3 Bucket
+(<code>SitecoreS3Bucket</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 Bucket name where the Sitecore 9.3 resources are located (installation files, license file, etc.). This deployment will put objects into this bucket.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sitecore installation files prefix
+(<code>SCResourcesPrefix</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>resources/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix in the S3 Bucket for the Sitecore install files (eg: resources/).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sitecore license file prefix
+(<code>SCLicensePrefix</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>license/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix in the S3 Bucket for the license.zip file (eg: license/).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Solr server/cluster URL
+(<code>SOLRUrl</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>Optional</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] URL of your Solr server/cluster. If no URL is provided a development Solr instance will be created for this Sitecore deployment. Note: This development Solr instance should not be used within a production environment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Solr cores prefix
+(<code>SOLRCorePrefix</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If you provided a Solr URL, this is the prefix of your pre-configured Solr cores. If no Solr URL provided, this is the prefix used for the Solr cores on the development Solr instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sitecore environment type
+(<code>EnvironmentType</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Production</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type of Sitecore deployment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sitecore log level
+(<code>SCLogLevel</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Information</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sitecore deployment configured log level.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email notifications
+(<code>EmailNotifications</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email address for receiving Sitecore auto scaling notifications.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lambda S3 bucket name
+(<code>LambdaZipsBucketName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>Optional</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] Name of the S3 bucket where the Lambda zip files should be placed. If you leave this parameter blank, an S3 bucket will be created.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 11. SQL Server configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Database instance class
+(<code>DBInstanceClass</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>db.r4.2xlarge</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the compute and memory capacity class of the database instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Database auto minor version upgrade
+(<code>DBAutoMinorVersionUpgrade</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If set to true, minor engine upgrades are applied to the database instance. If set to false, minor engine upgrades are not applied to the database instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MSSQL database engine edition
+(<code>SQLEngineEdition</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sqlserver-se</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MSSQL database engine edition.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MSSQL database engine version
+(<code>SQLEngineVersion</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>14.00.3223.3.v1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MSSQL database engine version.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MSSQL always on
+(<code>SQLAlwaysOn</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>False</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[OPTIONAL] Set to true if you want SQL to be always on (high availability) for the deployment. Beware that this only applies when SQLEngineEdition is set to sqlserver-ee (Enterprise Edition) as the MSSQL database engine edition. If set to false, SQL will be deployed to one Availability Zone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data volume size
+(<code>VolumeSize</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>500</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Volume size (GB) for the SQL data, logs, and TempDb volumes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data volume type
+(<code>VolumeType</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gp2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Volume type for the SQL Data, Logs and TempDb volumes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data volume IOPS
+(<code>VolumeIops</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1000</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provisioned IOPS for the SQL Data, Logs and TempDb volumes. This parameter is only applicable when VolumeType is set to "io1"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retention period
+(<code>BackupRetentionPeriod</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>7</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of days automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 12. Redis ElastiCache configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2558,7 +2558,7 @@ and to share your customizations with others.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-25 21:11:20 UTC
+Last updated 2020-09-01 20:59:50 UTC
 </div>
 </div>
 </body>
