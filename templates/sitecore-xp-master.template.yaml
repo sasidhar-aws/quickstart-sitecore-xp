@@ -279,6 +279,7 @@ Parameters:
     AllowedPattern: "[a-zA-Z0-9\\-]+\\..+"
   NumberOfRDGWHosts:
     AllowedValues: 
+      - '0'
       - '1'
       - '2'
     Default: '1'
@@ -753,6 +754,10 @@ Rules:
 
 Conditions:
   UsingDefaultBucket: !Equals [!Ref QSS3BucketName, 'aws-quickstart']
+  IncludeRDGW: !Not
+    - !Equals
+      - !Ref NumberOfRDGWHosts
+      - '0'
 Resources:
   VPCStack:
     Type: AWS::CloudFormation::Stack
@@ -776,6 +781,7 @@ Resources:
   RDGWStack:
     # DependsOn: VPCStack
     Type: AWS::CloudFormation::Stack
+    Condition: IncludeRDGW
     Properties: 
       TemplateURL: 
         !Sub

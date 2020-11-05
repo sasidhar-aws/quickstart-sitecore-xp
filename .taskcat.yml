@@ -27,7 +27,7 @@ project:
     AdminUser: StackAdmin
     AdminPassword: "$[taskcat_genpass_16]"
     DomainDNSName: example.com
-    NumberOfRDGWHosts: 1
+    NumberOfRDGWHosts: 0
     RDGWInstanceType: "t2.large"
     RDGWCIDR: 10.0.0.0/0
     CDMinSize: 1
