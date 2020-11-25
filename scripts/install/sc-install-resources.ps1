@@ -342,6 +342,7 @@ switch ($Role) {
                         XConnectCert             = $($parameters.xConnectCertificateThumbPrint)
                         SqlDbPrefix              = $($parameters.SCPrefix)
                         SqlServer                = $($parameters.SQLServer)
+                        SitecoreAdminPassword    = $($secrets.SitecoreAdminPassword)
                         SqlAdminUser             = $($secrets.SqlAdminUser)
                         SqlAdminPassword         = $($secrets.SqlAdminPassword)
                         SqlCoreUser              = $($secrets.SqlCoreUser)
