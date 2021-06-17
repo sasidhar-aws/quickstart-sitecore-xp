@@ -8,3 +8,4 @@ maint/*
 .vscode/settings.json
 .taskcat-*-*-*.yml
 index.html
+cfn-lint_output.txt
