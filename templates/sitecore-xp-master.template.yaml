@@ -652,6 +652,7 @@ Parameters:
     Type: String
   SQLEngineVersion:
     AllowedValues:
+      - 14.00.3381.3.v1
       - 14.00.3223.3.v1
       - 14.00.3192.2.v1
       - 14.00.3049.1.v1
@@ -659,7 +660,7 @@ Parameters:
       - 14.00.3015.40.v1
       - 14.00.1000.169.v1
     ConstraintDescription: Must select a MSSQL database engine version.
-    Default: 14.00.3223.3.v1
+    Default: 14.00.3381.3.v1
     Description: MSSQL database engine version.
     Type: String
   SQLAlwaysOn:
@@ -764,7 +765,7 @@ Resources:
     Properties:
       TemplateURL: 
         !Sub
-          - 'https://${S3Bucket}.s3.${S3Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}submodules/quickstart-aws-vpc/templates/aws-vpc.template'
+          - 'https://${S3Bucket}.s3.${S3Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}submodules/quickstart-aws-vpc/templates/aws-vpc.template.yaml'
           - S3Region: !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
             S3Bucket: !If [UsingDefaultBucket, !Sub '${QSS3BucketName}-${AWS::Region}', !Ref QSS3BucketName]
       Parameters:
